@@ -1,3 +1,4 @@
-SecRuleEngine On
-Include /etc/modsecurity.d/owasp-crs/crs-setup.conf
-Include /etc/modsecurity.d/owasp-crs/rules/*.conf
+filenames:
+  - /var/lib/docker/containers/*/*-json.log
+labels:
+  type: nginx
