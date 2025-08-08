@@ -1,0 +1,24 @@
+{
+  "title": "Nextcloud - Infra & WAF",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "cAdvisor UP",
+      "datasource": "Prometheus",
+      "targets": [{ "expr": "up{job=\"cadvisor\"}" }],
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 }
+    },
+    {
+      "type": "timeseries",
+      "title": "CPU containers (rate)",
+      "datasource": "Prometheus",
+      "targets": [{
+        "expr": "sum(rate(container_cpu_usage_seconds_total{image!=\"\"}[5m])) by (container_label_com_docker_compose_service)"
+      }],
+      "gridPos": { "x": 6, "y": 0, "w": 18, "h": 8 }
+    }
+  ],
+  "schemaVersion": 38,
+  "version": 1
+}

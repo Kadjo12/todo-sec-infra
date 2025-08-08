@@ -145,5 +145,9 @@ services:
     image: grafana/grafana
     ports: ["3000:3000"]
     networks: [monitor]
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./config/grafana/provisioning:/etc/grafana/provisioning:ro
